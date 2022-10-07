@@ -1,0 +1,35 @@
+syntax = "proto3";
+package pkt;
+option go_package = "./pkt";
+
+message LoginReq {
+  string token = 1;
+  string isp = 2;
+  string zone = 3; // location code
+  repeated string tags = 4;
+}
+
+message ErrorResp {
+  string message = 1;
+}
+
+message LoginResp {
+  string channelId = 1;
+  string account = 2;
+}
+
+message KickoutNotify {
+  string channelId = 1;
+}
+
+message Session {
+  string channelId = 1;// session id
+  string gateId = 2; // gateway ID
+  string account = 3;
+  string zone = 4;
+  string isp = 5;
+  string remoteIP = 6;
+  string device = 7;
+  string app = 8;
+  repeated string tags = 9;
+}
